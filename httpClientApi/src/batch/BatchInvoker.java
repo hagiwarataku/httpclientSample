@@ -6,12 +6,12 @@ import org.apache.commons.logging.LogFactory;
 
 public class BatchInvoker {
 
-	/** ƒƒK[ **/
+	/** ãƒ­ã‚¬ãƒ¼ **/
 	private Log logger = LogFactory.getLog(BatchInvoker.class);
 
 	/**
-	 * ƒoƒbƒ`‹N“®ˆ—
-	 * @param args ‹N“®ƒpƒ‰ƒ[ƒ^
+	 * ãƒãƒƒãƒèµ·å‹•å‡¦ç†
+	 * @param args èµ·å‹•ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
 	 */
 	public static void main(final String[] args) {
 		int resultStatus = new BatchInvoker().execute(args);
@@ -19,46 +19,46 @@ public class BatchInvoker {
 	}
 
 	/**
-	 * ƒoƒbƒ`‹N“®ˆ—
-	 * @param args ‹N“®ƒNƒ‰ƒX–¼
-	 * @return Œ‹‰ÊƒR[ƒh
+	 * ãƒãƒƒãƒèµ·å‹•å‡¦ç†
+	 * @param args èµ·å‹•ã‚¯ãƒ©ã‚¹å
+	 * @return çµæœã‚³ãƒ¼ãƒ‰
 	 */
 	public int execute(final String[] args) {
 
-		//TODO ƒoƒbƒ`‹N“®ƒƒO
+		//TODO ãƒãƒƒãƒèµ·å‹•ãƒ­ã‚°
 		logger.info("start batch");
 
 		int result = -1;
 		try {
-			// ƒpƒ‰ƒ[ƒ^ƒ`ƒFƒbƒN
+			// ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãƒã‚§ãƒƒã‚¯
 
-			// ƒpƒ‰ƒ[ƒ^
+			// ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
 
-			// ÀsƒNƒ‰ƒX–¼¶¬
+			// å®Ÿè¡Œã‚¯ãƒ©ã‚¹åç”Ÿæˆ
 			String className = "batch.FaxSendBatch";
-			// ƒNƒ‰ƒXƒCƒ“ƒXƒ^ƒ“ƒX¶¬
+			// ã‚¯ãƒ©ã‚¹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆ
 			AbstractBaseBatch batchInstance = createInstance(className);
 
-			// ƒoƒbƒ`ˆ—Às
+			// ãƒãƒƒãƒå‡¦ç†å®Ÿè¡Œ
 			Integer resultCd = batchInstance.executeBatch();
-			// Œ‹‰ÊƒR[ƒhİ’è
+			// çµæœã‚³ãƒ¼ãƒ‰è¨­å®š
 			result = resultCd.intValue();
 
-			//TODO ƒoƒbƒ`I—¹i³íjƒƒO
+			//TODO ãƒãƒƒãƒçµ‚äº†ï¼ˆæ­£å¸¸ï¼‰ãƒ­ã‚°
 			logger.info("end batch success");
 		} catch (Exception e) {
-			//TODO ƒoƒbƒ`I—¹iˆÙíjƒƒO
+			//TODO ãƒãƒƒãƒçµ‚äº†ï¼ˆç•°å¸¸ï¼‰ãƒ­ã‚°
 			logger.error("end batch error");
 
 		}
-		// Œ‹‰ÊƒR[ƒh•Ô‹p
+		// çµæœã‚³ãƒ¼ãƒ‰è¿”å´
 		return result;
 	}
 
 	/**
-	 * w’è‚³‚ê‚½ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚·‚éB
-	 * @param className ƒNƒ‰ƒX–¼
-	 * @return ƒNƒ‰ƒXƒCƒ“ƒXƒ^ƒ“ƒX
+	 * æŒ‡å®šã•ã‚ŒãŸã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã™ã‚‹ã€‚
+	 * @param className ã‚¯ãƒ©ã‚¹å
+	 * @return ã‚¯ãƒ©ã‚¹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
 	 */
 	@SuppressWarnings("unchecked")
 	public static AbstractBaseBatch createInstance(final String className) {
@@ -66,7 +66,7 @@ public class BatchInvoker {
 		try {
 			clazz = (Class<Object>) Class.forName(className);
 		} catch (ClassNotFoundException e) {
-			LogFactory.getLog(BatchInvoker.class).error("w’è‚µ‚½ƒNƒ‰ƒX‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ");
+			LogFactory.getLog(BatchInvoker.class).error("æŒ‡å®šã—ãŸã‚¯ãƒ©ã‚¹ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“");
 			throw new RuntimeException(e);
 		}
 		AbstractBaseBatch obj;

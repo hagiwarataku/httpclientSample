@@ -10,14 +10,14 @@ public class FileUtil {
 
 
 	/**
-	 * ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹“Ç‚İ‚İ
-	 * @param filePath ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹ƒpƒX
-	 * @return ’è‹`ƒtƒ@ƒCƒ‹î•ñ
+	 * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿
+	 * @param filePath ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹
+	 * @return å®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«æƒ…å ±
 	 * @throws IOException
 	 */
 	public static Properties loadConfiguration(String filePath) throws IOException {
 
-		// ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹“Ç‚İ‚İ
+		// ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿
 		FileInputStream is = null;
 		Properties props = new Properties();
 		try {
@@ -28,7 +28,7 @@ public class FileUtil {
 			try {
 				close(is);
 			} catch (IOException e) {
-				// ƒNƒ[ƒYˆ—‚Å‚Ì—áŠO‚Í–³‹
+				// ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†ã§ã®ä¾‹å¤–ã¯ç„¡è¦–
 				e.printStackTrace();
 			}
 		}
@@ -37,7 +37,7 @@ public class FileUtil {
 	}
 
 	/**
-	 * ƒtƒ@ƒCƒ‹ƒNƒ[ƒYˆ—
+	 * ãƒ•ã‚¡ã‚¤ãƒ«ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†
 	 * @throws IOException
 	 */
 	public static void close(InputStream in) throws IOException {

@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+encoding//src/batch/AbstractBaseBatch.java=UTF-8
+encoding//src/batch/BatchInvoker.java=UTF-8
+encoding//src/constants/MessageConst.java=UTF-8
+encoding//src/dto/ResultDto.java=UTF-8
+encoding//src/httpService/FaxSendService.java=UTF-8
+encoding//src/util/FileUtil.java=UTF-8
+encoding/<project>=UTF-8

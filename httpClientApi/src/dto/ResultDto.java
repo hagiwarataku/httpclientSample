@@ -1,9 +1,9 @@
 package dto;
 
 /**
- * ƒT[ƒrƒXŒ‹‰Ê•ÛƒNƒ‰ƒX
+ * ã‚µãƒ¼ãƒ“ã‚¹çµæœä¿æŒã‚¯ãƒ©ã‚¹
  * @author hagiwara
- * @param <T> response body•”•ÛƒNƒ‰ƒX‚ÌŒ^‚ğw’è
+ * @param <T> response bodyéƒ¨ä¿æŒã‚¯ãƒ©ã‚¹ã®å‹ã‚’æŒ‡å®š
  */
 public class ResultDto<T> {
 

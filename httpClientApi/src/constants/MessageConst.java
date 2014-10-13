@@ -3,7 +3,7 @@ package constants;
 public class MessageConst {
 
 
-	public static String CONFIG_LOAD_ERROR = "’è‹`î•ñ“Ç‚İæ‚è‚É¸”s‚µ‚Ü‚µ‚½B";
+	public static String CONFIG_LOAD_ERROR = "å®šç¾©æƒ…å ±èª­ã¿å–ã‚Šã«å¤±æ•—ã—ã¾ã—ãŸã€‚";
 
-	public static String MESSAGE_LOAD_ERROR = "ƒƒbƒZ[ƒWî•ñ“Ç‚İæ‚è‚É¸”s‚µ‚Ü‚µ‚½B";
+	public static String MESSAGE_LOAD_ERROR = "ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æƒ…å ±èª­ã¿å–ã‚Šã«å¤±æ•—ã—ã¾ã—ãŸã€‚";
 }

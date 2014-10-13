@@ -12,39 +12,39 @@ import constants.AppConst;
 
 public abstract class AbstractBaseBatch {
 
-	/** ’è‹`î•ñ **/
+	/** å®šç¾©æƒ…å ± **/
 	Properties props;
-	/** ƒƒbƒZ[ƒWî•ñ **/
+	/** ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æƒ…å ± **/
 	Properties messages;
 
-	/** ƒƒK[ **/
+	/** ãƒ­ã‚¬ãƒ¼ **/
 	private Log logger = LogFactory.getLog(AbstractBaseBatch.class);
 
 	public int executeBatch() {
 
 		int result = 1;
 
-		// TODO ‹N“®ƒƒO
+		// TODO èµ·å‹•ãƒ­ã‚°
 
-		// ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹“Ç‚İ‚İ
+		// ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿
 		loadConfigulation();
 
-		// ƒƒbƒZ[ƒWƒtƒ@ƒCƒ‹“Ç‚İ‚İ
+		// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿
 		loadMessage();
 
 		logger.info(props.getProperty("host.name"));
 		logger.info(messages.getProperty("warn.1001"));
 		logger.info(MessageFormat.format(messages.getProperty("warn.1002"),"8", "32"));
 		try {
-			// ‘Oˆ—
+			// å‰å‡¦ç†
 			beforeExecute();
-			// Àˆ—
+			// å®Ÿå‡¦ç†
 			result = execute();
 		} catch (Exception e) {
-			// TODO —áŠOˆ—‚ğŒˆ‚ß‚é
+			// TODO ä¾‹å¤–å‡¦ç†ã‚’æ±ºã‚ã‚‹
 			throw new RuntimeException(e);
 		} finally {
-			// Œãˆ—
+			// å¾Œå‡¦ç†
 			afterExecute();
 		}
 
@@ -54,41 +54,41 @@ public abstract class AbstractBaseBatch {
 	protected abstract int execute();
 
 	/**
-	 * ƒoƒbƒ`Às‘Oˆ—
-	 * –¢À‘•i•K—v‚Å‚ ‚ê‚Î’Ç‰Áj
+	 * ãƒãƒƒãƒå®Ÿè¡Œå‰å‡¦ç†
+	 * æœªå®Ÿè£…ï¼ˆå¿…è¦ã§ã‚ã‚Œã°è¿½åŠ ï¼‰
 	 */
 	protected void beforeExecute() {
 	}
 
 	/**
-	 * ƒoƒbƒ`ÀsŒãˆ—
-	 * –¢À‘•i•K—v‚Å‚ ‚ê‚Î’Ç‰Áj
+	 * ãƒãƒƒãƒå®Ÿè¡Œå¾Œå‡¦ç†
+	 * æœªå®Ÿè£…ï¼ˆå¿…è¦ã§ã‚ã‚Œã°è¿½åŠ ï¼‰
 	 */
 	protected void afterExecute() {
 	}
 
 	/**
-	 * ’è‹`î•ñ“Ç‚İ‚İ
-	 * @return ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹
+	 * å®šç¾©æƒ…å ±èª­ã¿è¾¼ã¿
+	 * @return ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«
 	 */
 	protected void loadConfigulation() {
 		try {
 			props = FileUtil.loadConfiguration(AppConst.APP_PROP_PATH);
 		} catch (IOException e) {
-			// TODO ƒƒbƒZ[ƒWo—Í
-			logger.error("ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹“Ç‚İ‚İ¸”s");
+			// TODO ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å‡ºåŠ›
+			logger.error("ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿å¤±æ•—");
 		}
 	}
 
 	/**
-	 * ƒƒbƒZ[ƒWî•ñ“Ç‚İ‚İ
+	 * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æƒ…å ±èª­ã¿è¾¼ã¿
 	 */
 	protected void loadMessage() {
 		try {
 			messages = FileUtil.loadConfiguration(AppConst.MESSAGE_PROP_PATH);
 		} catch (IOException e) {
-			// TODO ƒƒbƒZ[ƒWo—Í
-			logger.error("ƒƒbƒZ[ƒWƒtƒ@ƒCƒ‹“Ç‚İ‚İ¸”s");
+			// TODO ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å‡ºåŠ›
+			logger.error("ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿å¤±æ•—");
 
 		}
 	}

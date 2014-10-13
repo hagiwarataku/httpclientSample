@@ -24,21 +24,21 @@ public class FaxSendService {
 
 	public ResultDto<TestResponseDto> doPost() {
 
-		// ƒpƒ‰ƒ[ƒ^İ’è
+		// ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
 		CloseableHttpClient httpclient = HttpClients.createDefault();
 	    MultipartEntityBuilder multipartEntityBuilder = MultipartEntityBuilder.create();
 	    multipartEntityBuilder.setCharset(Consts.UTF_8);
 
-	    // ƒtƒ@ƒCƒ‹‚ğ’Ç‰Á
+	    // ãƒ•ã‚¡ã‚¤ãƒ«ã‚’è¿½åŠ 
 	    multipartEntityBuilder.addBinaryBody("file", new File("c:/test/test.txt"), ContentType.DEFAULT_BINARY, "test.txt");
 
-	    // ƒeƒLƒXƒg•¶š—ñ‚ğİ’è‚·‚é‚Æ‚«‚ÌContentType‚ğ¶¬
+	    // ãƒ†ã‚­ã‚¹ãƒˆæ–‡å­—åˆ—ã‚’è¨­å®šã™ã‚‹ã¨ãã®ContentTypeã‚’ç”Ÿæˆ
 	    ContentType textContentType = ContentType.create("text/plain", Consts.UTF_8);
 
-	    // ƒeƒLƒXƒg‚ğ’Ç‰Á
-	    multipartEntityBuilder.addTextBody("text", "ƒeƒXƒg", textContentType);
+	    // ãƒ†ã‚­ã‚¹ãƒˆã‚’è¿½åŠ 
+	    multipartEntityBuilder.addTextBody("text", "ãƒ†ã‚¹ãƒˆ", textContentType);
 
-		// POSTƒf[ƒ^ì¬
+		// POSTãƒ‡ãƒ¼ã‚¿ä½œæˆ
 		String url = "http://localhost:8080/httpServerDummy/rest";
 		HttpPost httpPost = new HttpPost(url);
 		httpPost.setEntity(multipartEntityBuilder.build());
@@ -48,24 +48,24 @@ public class FaxSendService {
 
 		CloseableHttpResponse response = null;
 
-		// ‘—MÀs
+		// é€ä¿¡å®Ÿè¡Œ
 		try {
 			response = httpclient.execute(httpPost);
 			responseStatus = response.getStatusLine().getStatusCode();
 			body = EntityUtils.toString(response.getEntity(), "UTF-8");
 			response.close();
 		} catch (ClientProtocolException e) {
-			// TODO ©“®¶¬‚³‚ê‚½ catch ƒuƒƒbƒN
+			// TODO è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸ catch ãƒ–ãƒ­ãƒƒã‚¯
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO ©“®¶¬‚³‚ê‚½ catch ƒuƒƒbƒN
+			// TODO è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸ catch ãƒ–ãƒ­ãƒƒã‚¯
 			e.printStackTrace();
 		} catch (ParseException e) {
-			// TODO ©“®¶¬‚³‚ê‚½ catch ƒuƒƒbƒN
+			// TODO è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸ catch ãƒ–ãƒ­ãƒƒã‚¯
 			e.printStackTrace();
 		}
 
-		// resuponse‚Ìİ’è
+		// resuponseã®è¨­å®š
 		ResultDto<TestResponseDto> result = new ResultDto<TestResponseDto>();
 		result.setResultCd(responseStatus);
 		result.setResultObject(JSON.decode(body, TestResponseDto.class));
